@@ -2,7 +2,7 @@ const express = require("express");
 const bodyParser = require("body-parser");
 const cors = require("cors");
 const app = express();
-const port = 8090;
+const port = 3000;
 const mail = require("./mailer");
 
 
@@ -10,6 +10,9 @@ const con = require("./connection");
 
 app.use(bodyParser.json());
 app.use(cors());
+// use the express-static middleware
+app.use(express.static("public"))
+
 app.use(express.urlencoded({ extended: true }));
 
 // mailer
@@ -126,4 +129,5 @@ app.post("/sendmail", (req, res) => {
   });
 });
 
-app.listen(port);
+app.listen(process.env.PORT || port, 
+	() => console.log("Server is running..."));
