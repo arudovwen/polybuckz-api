@@ -129,5 +129,4 @@ app.post("/sendmail", (req, res) => {
   });
 });
 
-app.listen(process.env.PORT || port, 
-	() => console.log("Server is running..."));
+app.listen(process.env.PORT || port);
