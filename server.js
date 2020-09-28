@@ -11,7 +11,7 @@ const con = require("./connection");
 app.use(bodyParser.json());
 app.use(cors());
 // use the express-static middleware
-app.use(express.static("public"))
+// app.use(express.static("public"))
 
 app.use(express.urlencoded({ extended: true }));
 
