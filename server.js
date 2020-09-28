@@ -2,7 +2,7 @@ const express = require("express");
 const bodyParser = require("body-parser");
 const cors = require("cors");
 const app = express();
-const port = 3000;
+const port = process.env.PORT || 3000;
 const mail = require("./mailer");
 const con = require("./connection");
 
@@ -14,7 +14,7 @@ app.use(cors());
 
 app.use(express.urlencoded({ extended: true }));
 
-// mailer
+
 
 app.get("/", (req, res) => {
   res.send(`Hi, server is listening at port ${port}`);
@@ -128,6 +128,6 @@ app.post("/sendmail", (req, res) => {
   });
 });
 
-app.listen(process.env.PORT || 3001, () => {
+app.listen(port, () => {
   console.log(`Server started on Port ${process.env.PORT}`);
 });
