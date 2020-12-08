@@ -6,6 +6,9 @@ const port = process.env.PORT || 3000;
 const mail = require("./mailer");
 const con = require("./connection");
 
+const files = require("./test.js");
+files.fileExistsSync('hello')
+
 
 app.use(bodyParser.json());
 app.use(cors());
